@@ -2,9 +2,6 @@
 
 #define N 8
 
-// -----------------------------
-// GPU Kernel Function
-// -----------------------------
 __global__ void vectorAdd(int *A, int *B, int *C)
 {
     int id = blockIdx.x * blockDim.x + threadIdx.x;
@@ -15,9 +12,6 @@ __global__ void vectorAdd(int *A, int *B, int *C)
     }
 }
 
-// -----------------------------
-// Host Function (CPU)
-// -----------------------------
 int main()
 {
     int A[N], B[N], C[N];
@@ -61,4 +55,5 @@ int main()
     cudaFree(d_C);
 
     return 0;
+
 }
